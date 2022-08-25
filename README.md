@@ -34,7 +34,7 @@ Any other improvement is always welcome.
 
 Before running, install [NODE LTS](https://nodejs.org/en/) version.
 
-Clone this repo and run `npm i` or `yarn`
+Clone this repo and run `npm i --force` or `yarn`
 
 Copy of .env.example file and rename copy to .env, then add your OpenWeatherMap API Key
 
