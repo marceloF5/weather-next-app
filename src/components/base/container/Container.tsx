@@ -3,7 +3,7 @@ import media from 'styled-media-query'
 import styled from 'styled-components'
 
 const Container = styled.div`
-    height: calc(100vh - calc(100vh - 100%));
+    height: 100vh;
     width: 100%;
     margin: auto;
     padding: 2.5rem;
@@ -11,6 +11,10 @@ const Container = styled.div`
 
     display: flex;
     flex-direction: column;
+
+    ${media.lessThan('small')`
+        height: calc(100vh - calc(100vh - 100%));
+    `}
 
     ${media.between('medium', 'large')`
         padding: 2.5 3rem;       

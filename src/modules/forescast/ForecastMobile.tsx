@@ -6,9 +6,9 @@ const ForecastMobile = () => {
     const { currentWeatherInfo } = useWeather()
 
     const locationText = `${
-        currentWeatherInfo?.city || currentWeatherInfo.timezone.split('/')[1]
+        currentWeatherInfo?.city || currentWeatherInfo.timezone?.split('/')[1]
     }, ${
-        currentWeatherInfo?.state || currentWeatherInfo.timezone.split('/')[0]
+        currentWeatherInfo?.state || currentWeatherInfo.timezone?.split('/')[0]
     } ${currentWeatherInfo?.country ? `(${currentWeatherInfo.country})` : ''}`
 
     return (
