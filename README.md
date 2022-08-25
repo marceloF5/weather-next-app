@@ -1,8 +1,44 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## What is this APP?
+
+This application aims to offer the best experience for users in querying weather forecasts worldwide.
+
+## Motivation
+
+As there are already many weather forecasting apps on the web, this repository has a different purpose which is to test and apply different techniques and knowledge, engineering concepts, measure performance and design from a real business model. In short: a space for proof of concept.
+
+## Stack
+
+This App adopted the following stack: React, Nextjs, Styled-components and Reakit. For test is adoped Jest and React Testing Library.
+
+## Features Implemented
+
+- Get user's geo location;
+- Show current weather, based on user's location (or default location);
+- Forecast for the next 7 days;
+- User is able to add and remove cities;
+- The application will preserve the list that was made in the previous session using localstorage.
+
+Despite the features implemented above, in this first release, special attention was purposely paid to architectural scenarios, for example the SSR and the division of packages (bundle) in the construction between desktop and mobile.
+
+## General Improvements
+
+- Success feedback messages, alerts or errors in the operations of the App;
+- Usability to be able to click on cards through the keyboard;
+- The development of a Design system with definitions of typography, spacing, usability, colors and reuse of components;
+- Adding icons;
+- App does not have the minimum acceptable coverage. Although there are all the setup for unit testing already done;
+
+Any other improvement is always welcome.
 
 ## Getting Started
 
-First, run the development server:
+Before running, install [NODE LTS](https://nodejs.org/en/) version.
+
+Clone this repo and run `npm i` or `yarn`
+
+Copy of .env.example file and rename copy to .env, then add your OpenWeatherMap API Key
+
+Run the development server:
 
 ```bash
 npm run dev
@@ -11,24 +47,3 @@ yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
