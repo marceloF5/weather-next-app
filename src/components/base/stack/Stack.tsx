@@ -11,6 +11,7 @@ type TStackProps = {
     align?: 'center' | 'flex-start' | 'flex-end'
     gap?: string
     wrap?: 'wrap' | 'nowrap'
+    position?: 'absolute' | 'relative' | 'inherit'
 }
 
 const Stack = styled.div<TStackProps>`
@@ -19,9 +20,11 @@ const Stack = styled.div<TStackProps>`
         justify = 'flex-start',
         align = 'flex-start',
         gap = 0,
-        wrap = 'wrap'
+        wrap = 'wrap',
+        position
     }) => css`
         width: 100%;
+        position: ${position};
 
         display: flex;
         justify-content: ${justify};

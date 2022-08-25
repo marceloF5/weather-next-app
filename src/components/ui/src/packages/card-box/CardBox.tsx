@@ -5,10 +5,11 @@ import styled, { css } from 'styled-components'
 type TCardBoxProps = {
     isToday?: boolean
     subBox?: boolean
+    hasCursor?: boolean
 }
 
 const CardBox = styled.div<TCardBoxProps>`
-    ${({ isToday = false, subBox = false }) => css`
+    ${({ isToday = false, subBox = false, hasCursor = false }) => css`
         width: ${isToday ? '100%' : '5rem'};
         height: ${isToday ? '30rem' : '10rem'};
         border-radius: 2rem;
@@ -28,6 +29,10 @@ const CardBox = styled.div<TCardBoxProps>`
         justify-content: space-between;
         align-items: center;
 
+        ${hasCursor &&
+        css`
+            cursor: pointer;
+        `}
         ${subBox &&
         css`
             width: 100%;

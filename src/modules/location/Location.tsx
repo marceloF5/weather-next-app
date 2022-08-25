@@ -1,7 +1,6 @@
 import { Stack } from 'components/base'
 import { Field, ListBox, ListItem } from 'components/ui'
 import { useWeather } from 'shared/context/weather'
-import { css } from 'styled-components'
 
 const Location = () => {
     const {
@@ -11,13 +10,7 @@ const Location = () => {
     } = useWeather()
 
     return (
-        <Stack
-            align="center"
-            gap="2"
-            css={css`
-                position: relative;
-            `}
-        >
+        <Stack align="center" gap="2" position="relative">
             <Field
                 type="text"
                 name="searchByCity"

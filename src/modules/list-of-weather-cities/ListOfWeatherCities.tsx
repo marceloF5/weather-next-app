@@ -1,7 +1,6 @@
 import { Stack } from 'components/base'
 import { CardBox, Text } from 'components/ui'
 import { useWeather } from 'shared/context/weather'
-import { css } from 'styled-components'
 
 const ListOfWeatherCities = () => {
     const {
@@ -38,11 +37,7 @@ const ListOfWeatherCities = () => {
                     <CardBox
                         subBox
                         as="li"
-                        css={css`
-                            cursor: pointer;
-                            display: 'flex';
-                            align-items: 'center';
-                        `}
+                        hasCursor
                         key={city.id}
                         onClick={() => handleCurrentWeatherByList(city)}
                     >
@@ -53,9 +48,7 @@ const ListOfWeatherCities = () => {
                         <Text
                             size="1rem"
                             weight={'bold'}
-                            css={css`
-                                cursor: pointer;
-                            `}
+                            hasCursor
                             onClick={() => handleRemoveCityFromList(city.id)}
                         >
                             DELETE
