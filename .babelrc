@@ -2,8 +2,24 @@
     "presets": ["next/babel", "@babel/preset-typescript"],
     "plugins": [
         [
-            "styled-components", { "ssr": true },
-            "babel-plugin-styled-components"
+            "babel-plugin-styled-components",
+            {
+                "ssr": true,
+                "displayName": true
+            }
         ]
-    ]
+    ],
+    "env": {
+        "test": {
+            "plugins": [
+                [
+                    "babel-plugin-styled-components",
+                    {
+                    "ssr": false,
+                    "displayName": false
+                    }
+                ]
+            ]
+        }
+    }
 }
