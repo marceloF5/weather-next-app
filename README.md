@@ -36,7 +36,7 @@ Before running, install [NODE LTS](https://nodejs.org/en/) version.
 
 Clone this repo and run `npm i --force` or `yarn`
 
-Copy of .env.example file and rename copy to .env, then add your OpenWeatherMap API Key
+Copy of .env.example file and rename copy to .env, then add your OpenWeatherMap API Key. You should subscribe on Open Weather Map in order to get API KEY. More details in this [link](https://openweathermap.org/api).
 
 Run the development server:
 
