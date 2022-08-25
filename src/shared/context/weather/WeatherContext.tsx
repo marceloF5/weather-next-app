@@ -4,7 +4,7 @@ import { TCityInfo, TCityInfoMapped, TCurrentWeatherInfo } from 'shared/types'
 
 type TWeatherContextProps = {
     currentWeatherInfo: TCurrentWeatherInfo
-    listOfCitiesFound?: TCityInfoMapped[]
+    listOfCitiesFound: TCityInfoMapped[]
     listOfCities: TCityInfo[]
     handleCurrentWeatherByCoordinates: (cityInfo?: TCityInfoMapped) => void
     handleCurrentWeatherByList: (cityInfo: TCityInfoMapped) => void

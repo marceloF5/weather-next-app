@@ -25,8 +25,9 @@ const WeatherProvider = ({
 }: TWeatherProviderProps) => {
     const [currentWeatherInfo, setCurrentWeatherInfo] =
         useState<TCurrentWeatherInfo>(JSON.parse(initial_city_info))
-    const [listOfCitiesFound, setListOfCitiesFound] =
-        useState<TCityInfoMapped[]>()
+    const [listOfCitiesFound, setListOfCitiesFound] = useState<
+        TCityInfoMapped[]
+    >([])
     const [listOfCities, setListOfCities] = useState<TCityInfo[]>(
         JSON.parse(initial_list_of_cities_found)
     )
@@ -60,6 +61,7 @@ const WeatherProvider = ({
                         cookieLatLonCityStateCountry?.country ||
                         ''
                 })
+
                 cookies.set(
                     'initial_city_info',
                     JSON.stringify({
@@ -79,6 +81,7 @@ const WeatherProvider = ({
                             ''
                     })
                 )
+                setListOfCitiesFound([])
 
                 if (cityInfo) {
                     const id = cityInfo.latitude + cityInfo.longitude
@@ -123,8 +126,6 @@ const WeatherProvider = ({
                         JSON.stringify([...listOfCities, { ...cityInfo, id }])
                     )
                 }
-
-                setListOfCitiesFound([])
             } catch (e) {
                 // ADD MESSAGE ERROR COMPONENT
             }
