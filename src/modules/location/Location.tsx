@@ -1,8 +1,7 @@
-import { Layer } from 'react-layers-manager'
-
 import { Stack } from 'components/base'
-import { Text, Field } from 'components/ui'
+import { Field, ListBox, ListItem } from 'components/ui'
 import { useWeather } from 'shared/context/weather'
+import { css } from 'styled-components'
 
 const Location = () => {
     const {
@@ -12,16 +11,23 @@ const Location = () => {
     } = useWeather()
 
     return (
-        <Stack align="center" gap="2">
+        <Stack
+            align="center"
+            gap="2"
+            css={css`
+                position: relative;
+            `}
+        >
             <Field
                 type="text"
                 name="searchByCity"
                 placeholder="search city..."
                 onChange={(e) => handleListOfCities(e.target.value)}
             />
-            <ul style={{ color: '#fff' }}>
+
+            <ListBox isOpen={!!listOfCitiesFound?.length}>
                 {listOfCitiesFound?.map((cityinfo) => (
-                    <li key={cityinfo.latitude + cityinfo.longitude}>
+                    <ListItem key={cityinfo.latitude + cityinfo.longitude}>
                         <div
                             style={{
                                 display: 'flex',
@@ -35,9 +41,9 @@ const Location = () => {
                             <p>{cityinfo.state},</p>
                             <p>{cityinfo.city}</p>
                         </div>
-                    </li>
+                    </ListItem>
                 ))}
-            </ul>
+            </ListBox>
         </Stack>
     )
 }
