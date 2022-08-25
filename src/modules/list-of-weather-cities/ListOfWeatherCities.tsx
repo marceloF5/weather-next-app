@@ -18,7 +18,7 @@ const ListOfWeatherCities = () => {
         }
     })
 
-    if (!listOfCities) {
+    if (!listOfCities?.length) {
         return (
             <Stack justify="center" direction="vertical" gap="2">
                 <Text>
