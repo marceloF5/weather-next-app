@@ -1,21 +1,12 @@
-import { render } from '@testing-library/react'
+import '@testing-library/jest-dom'
 
-import { WeatherProvider } from 'shared/context/weather'
+import { customRender } from 'shared/utils/test-utils'
 
 import Location from '../Location'
 
-import '@testing-library/jest-dom'
-
-describe('Location', () => {
-    it('renders a snap', () => {
-        const { container } = render(
-            <WeatherProvider
-                initial_city_info={'initial_city_info'}
-                initial_list_of_cities_found={'initial_list_of_cities_found'}
-            >
-                <Location />
-            </WeatherProvider>
-        )
+describe('<Location />', () => {
+    it('render a snapshot of the component', () => {
+        const { container } = customRender(<Location />)
 
         expect(container).toMatchSnapshot()
     })
