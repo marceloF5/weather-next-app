@@ -10,7 +10,7 @@ const ListOfWeatherCities = () => {
         handleRemoveCityFromList
     } = useWeather()
 
-    const newListOfCities = listOfCities.map((city) => {
+    const newListOfCities = listOfCities?.map((city) => {
         return {
             ...city,
             concat: `${city?.state}, ${city?.city} ${
@@ -18,6 +18,17 @@ const ListOfWeatherCities = () => {
             }`
         }
     })
+
+    if (!listOfCities) {
+        return (
+            <Stack justify="center" direction="vertical" gap="2">
+                <Text>
+                    There is no list of cities. Search and chose one to add in
+                    the list.
+                </Text>
+            </Stack>
+        )
+    }
 
     return (
         <Stack direction="vertical" gap="2">

@@ -13,6 +13,11 @@ type TWeatherProviderProps = {
     initial_list_of_cities_found: string
 }
 
+const DEFAULT_COORDS = {
+    lat: 38.7259284,
+    lon: -9.13738217
+}
+
 const WeatherProvider = ({
     children,
     initial_city_info,
@@ -32,9 +37,12 @@ const WeatherProvider = ({
                 const cookieLatLonCityStateCountry =
                     JSON.parse(initial_city_info)
                 const weatherByCoordinates = await getWeatherByCoordinates(
-                    cityInfo?.latitude || cookieLatLonCityStateCountry?.lat,
-
-                    cityInfo?.longitude || cookieLatLonCityStateCountry?.lon
+                    cityInfo?.latitude ||
+                        cookieLatLonCityStateCountry?.lat ||
+                        DEFAULT_COORDS.lat,
+                    cityInfo?.longitude ||
+                        cookieLatLonCityStateCountry?.lon ||
+                        DEFAULT_COORDS.lon
                 )
 
                 setCurrentWeatherInfo({
@@ -115,6 +123,8 @@ const WeatherProvider = ({
                         JSON.stringify([...listOfCities, { ...cityInfo, id }])
                     )
                 }
+
+                setListOfCitiesFound([])
             } catch (e) {
                 // ADD MESSAGE ERROR COMPONENT
             }
