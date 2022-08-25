@@ -65,7 +65,7 @@ export type TCityInfoMapped = {
 
 export type TCityInfo = TCityInfoMapped & {
     id: number
-    temp: number
+    temp: string
 }
 
 export type TCurrentWeatherInfo = TWeatherMapped &
