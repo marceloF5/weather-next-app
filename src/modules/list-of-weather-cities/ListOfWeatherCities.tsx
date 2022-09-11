@@ -12,8 +12,8 @@ const ListOfWeatherCities = () => {
     const newListOfCities = listOfCities?.map((city) => {
         return {
             ...city,
-            concat: `${city?.state}, ${city?.city} ${
-                city?.country ? `(${city.country})` : ''
+            concat: `${city?.city}${city?.state ? `, ${city.state} ` : ''}${
+                city?.country ? ` (${city.country})` : ''
             }`
         }
     })

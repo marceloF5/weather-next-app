@@ -100,16 +100,11 @@ const Location = () => {
                         }}
                         onClick={() => handleSelectCity(cityinfo)}
                     >
-                        <div
-                            style={{
-                                display: 'flex',
-                                marginBottom: '10px',
-                                cursor: 'pointer'
-                            }}
-                        >
-                            <p>{cityinfo.state},</p>
-                            <p>{cityinfo.city}</p>
-                        </div>
+                        <p>
+                            {cityinfo.city}
+                            {cityinfo.state ? ', ' + cityinfo.state : ''}
+                            {cityinfo.country ? ', ' + cityinfo.country : ''}
+                        </p>
                     </ListItem>
                 ))}
             </ListBox>

@@ -6,6 +6,8 @@ const ListItem = styled.li`
     padding: 1rem 2rem;
     background-color: #1a191c;
     transition: filter 0.2s;
+    margin-bottom: 1rem;
+    cursor: pointer;
 
     display: flex;
     justify-content: flex-start;
