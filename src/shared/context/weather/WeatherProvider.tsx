@@ -32,6 +32,8 @@ const WeatherProvider = ({
         JSON.parse(initial_list_of_cities_found)
     )
 
+    const resetListOfCitiesFound = () => setListOfCitiesFound([])
+
     const handleCurrentWeatherByCoordinates = useCallback(
         async (cityInfo?: TCityInfoMapped) => {
             try {
@@ -81,7 +83,7 @@ const WeatherProvider = ({
                             ''
                     })
                 )
-                setListOfCitiesFound([])
+                resetListOfCitiesFound()
 
                 if (cityInfo) {
                     const id = cityInfo.latitude + cityInfo.longitude
@@ -167,6 +169,10 @@ const WeatherProvider = ({
     }
 
     const handleListOfCities = async (city: string) => {
+        if (city === '') {
+            resetListOfCitiesFound()
+            return
+        }
         try {
             const listOfCitiesInfo = await getCoordsOfCities(city)
 
@@ -191,7 +197,8 @@ const WeatherProvider = ({
                 handleCurrentWeatherByCoordinates,
                 handleListOfCities,
                 handleCurrentWeatherByList,
-                handleRemoveCityFromList
+                handleRemoveCityFromList,
+                resetListOfCitiesFound
             }}
         >
             {children}

@@ -10,6 +10,7 @@ type TWeatherContextProps = {
     handleCurrentWeatherByList: (cityInfo: TCityInfoMapped) => void
     handleRemoveCityFromList: (id: number) => void
     handleListOfCities: (city: string) => void
+    resetListOfCitiesFound: () => void
 }
 
 const WeatherContext = createContext<TWeatherContextProps>({
@@ -35,7 +36,8 @@ const WeatherContext = createContext<TWeatherContextProps>({
     handleCurrentWeatherByCoordinates: () => null,
     handleCurrentWeatherByList: () => null,
     handleRemoveCityFromList: () => null,
-    handleListOfCities: () => null
+    handleListOfCities: () => null,
+    resetListOfCitiesFound: () => null
 })
 
 export default WeatherContext
