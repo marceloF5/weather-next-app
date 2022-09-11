@@ -1,7 +1,7 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { Stack } from 'components/base'
-import { Field, ListBox, ListItem } from 'components/ui'
+import { Field, ListBox, ListItem, Text } from 'components/ui'
 import { useWeather } from 'shared/context/weather'
 import { TCityInfoMapped } from 'shared/types'
 
@@ -12,6 +12,7 @@ const Location = () => {
         handleCurrentWeatherByCoordinates,
         resetListOfCitiesFound
     } = useWeather()
+    const [errorMsg, setErrorMsg] = useState(null)
     const isResultListOpen = !!(listOfCitiesFound.length > 1)
     const searchByCityRef = useRef<HTMLInputElement>(null)
     const listOfCitiesFoundWithRef = useRef<HTMLLIElement[]>([])
@@ -36,7 +37,10 @@ const Location = () => {
 
     const handleFocusToInput = () => searchByCityRef.current?.focus()
 
-    const handleFocusToList = () => listOfCitiesFoundWithRef.current[0].focus()
+    const handleFocusToList = () =>
+        listOfCitiesFoundWithRef.current.length
+            ? listOfCitiesFoundWithRef.current[0].focus()
+            : setErrorMsg('Please, search by city, state or coutry')
 
     const handleResetListOfCities = () => {
         resetListOfCitiesFound()
@@ -69,20 +73,30 @@ const Location = () => {
 
     return (
         <Stack align="center" gap="2" position="relative">
-            <Field
-                type="text"
-                name="searchByCity"
-                placeholder="search city..."
-                onChange={(ev) => {
-                    handleListOfCities(ev.target.value)
-                }}
-                onKeyDown={(ev) => {
-                    if (ev.code === 'Enter') handleFocusToList()
-                    if (ev.code === 'Escape') handleResetListOfCities()
-                }}
-                ref={searchByCityRef}
-                tabIndex={0}
-            />
+            <Stack gap="1" direction="vertical">
+                <Field
+                    type="text"
+                    name="searchByCity"
+                    placeholder="search city..."
+                    onChange={(ev) => {
+                        setErrorMsg(null)
+                        handleListOfCities(ev.target.value)
+                    }}
+                    onKeyDown={(ev) => {
+                        if (ev.code === 'Enter') handleFocusToList()
+                        if (ev.code === 'Escape') handleResetListOfCities()
+                        if (ev.code === 'ArrowDown') handleFocusToList()
+                    }}
+                    ref={searchByCityRef}
+                    tabIndex={0}
+                    autoComplete="off"
+                />
+                {!!errorMsg && (
+                    <Text size="1.5rem" weight="bold" hasError>
+                        {errorMsg}
+                    </Text>
+                )}
+            </Stack>
 
             <ListBox isOpen={isResultListOpen}>
                 {listOfCitiesFound.map((cityinfo, i) => (

@@ -40,6 +40,7 @@ const ListOfWeatherCities = () => {
                         hasCursor
                         key={city.id}
                         onClick={() => handleCurrentWeatherByList(city)}
+                        tabIndex={0}
                     >
                         <Text size="1.5rem">{city.concat}</Text>
                         <Text size="2.5rem" weight={'bold'}>

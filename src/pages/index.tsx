@@ -27,7 +27,7 @@ const Home: TNextPageWithLayout = ({ initialState }: THomeProps) => {
             initial_city_info={initial_city_info}
             initial_list_of_cities_found={initial_list_of_cities_found}
         >
-            <Stack gap="5">
+            <Stack gap="3">
                 <Location />
                 <ForecastDesktop />
                 <ListOfWeatherCities />
