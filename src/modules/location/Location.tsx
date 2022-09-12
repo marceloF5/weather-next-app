@@ -12,7 +12,7 @@ const Location = () => {
         handleCurrentWeatherByCoordinates,
         resetListOfCitiesFound
     } = useWeather()
-    const [errorMsg, setErrorMsg] = useState(null)
+    const [errorMsg, setErrorMsg] = useState<string | null>(null)
     const isResultListOpen = !!(listOfCitiesFound.length > 1)
     const searchByCityRef = useRef<HTMLInputElement>(null)
     const listOfCitiesFoundWithRef = useRef<HTMLLIElement[]>([])

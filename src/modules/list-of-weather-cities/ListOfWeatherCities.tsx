@@ -51,6 +51,11 @@ const ListOfWeatherCities = () => {
                             weight={'bold'}
                             hasCursor
                             onClick={() => handleRemoveCityFromList(city.id)}
+                            onKeyDown={(ev) => {
+                                if (ev.code === 'Enter')
+                                    handleRemoveCityFromList(city.id)
+                            }}
+                            tabIndex={0}
                         >
                             DELETE
                         </Text>
