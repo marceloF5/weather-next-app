@@ -40,7 +40,7 @@ const Location = () => {
     const handleFocusToList = () =>
         listOfCitiesFoundWithRef.current.length
             ? listOfCitiesFoundWithRef.current[0].focus()
-            : setErrorMsg('Please, search by city, state or coutry')
+            : setErrorMsg('Please, search by city, state or country')
 
     const handleResetListOfCities = () => {
         resetListOfCitiesFound()
